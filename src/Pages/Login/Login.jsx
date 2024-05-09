@@ -1,13 +1,72 @@
-import { Link } from "react-router-dom";
-
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import signIn  from '../../assets/4957136.jpg'
+import toast from "react-hot-toast";
+import { useState } from "react";
+import useAuth from "../../Components/use/useAuth";
+import { FaGithub } from "react-icons/fa6";
 const Login = () => {
+    const { logIn, googleLogin, githubLogin } =useAuth();
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLOgin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+
+    const user = { name, email, password, photo };
+    console.log(user);
+
+    logIn(email, password)
+      .then(() => {
+        toast.success('Login successfully')
+
+        setSuccess("LogIn successful");
+
+        //  navigate login
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        toast.error(error.massage)
+
+        setError(error.massage);
+      });
+  };
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        console.log(result.user);
+
+       toast.success('Login successfully')
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  const handleGithubLogin = () => {
+    githubLogin()
+      .then((result) => {
+        console.log(result.user);
+       toast.success('Login successfully')
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
     return (
-      <div className='flex justify-center items-center min-h-[calc(100vh-306px)]'>
+      <div className='flex my-10 justify-center items-center min-h-[calc(100vh-306px)]'>
         <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
           <div
             className='hidden bg-cover bg-center lg:block lg:w-1/2'
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1606660265514-358ebbadc80d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80')`,
+              backgroundImage: `url(${signIn})`,
             }}
           ></div>
   
@@ -46,8 +105,18 @@ const Login = () => {
                 </svg>
               </div>
   
-              <span className='w-5/6 px-4 py-3 font-bold text-center'>
+              <span onClick={handleGoogleLogin} className='w-5/6 px-4 py-3 font-bold text-center'>
                 Sign in with Google
+              </span>
+            </div>
+            <div className='flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 '>
+              <div className='px-4 py-2'>
+              <FaGithub></FaGithub>
+                
+              </div>
+  
+              <span onClick={handleGithubLogin} className='w-5/6 px-4 py-3 font-bold text-center'>
+                Sign in with github
               </span>
             </div>
   
