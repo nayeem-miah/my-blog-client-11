@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Typewriter } from "react-simple-typewriter";
+import useAuth from "../use/useAuth";
 import Swal from "sweetalert2";
-
+import { Typewriter } from "react-simple-typewriter";
 
 const Navbar = () => {
-//   const { user, logout } = useContext(AuthContext);
+  const { logout, user } = useAuth();
   const [open, setOpen] = useState();
   const handleLogout = () => {
     logout()
@@ -25,33 +25,35 @@ const Navbar = () => {
       });
   };
 
-
   const nabLinks = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/allTourists">All Tourists Spot</NavLink>
+        <NavLink to="/allBlogs">All Blogs </NavLink>
+      </li>
+      <li>
+        <NavLink to="/featuredBlogs">featured Blogs </NavLink>
       </li>
       <span>
         {user && (
           <li>
-            <NavLink to="/addTourists"> Add Tourists Spot</NavLink>
+            <NavLink to="/addBlogs">Add Blog</NavLink>
           </li>
         )}
       </span>
       <span>
         {user && (
           <li>
-            <NavLink to="/myList"> My Lists</NavLink>
+            <NavLink to="/wishlist">Wishlist</NavLink>
           </li>
         )}
       </span>
     </>
   );
   return (
-    <div className="navbar bg-base-300 shadow-lg">
+    <div className="navbar bg-base-300 shadow-lg fixed z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn  btn-ghost lg:hidden">
@@ -80,14 +82,7 @@ const Navbar = () => {
         <a className="btn btn-ghost text-2xl text-green-600">
           {" "}
           <Typewriter
-            words={
-              [
-                //   "JourneyJunction",
-                //   " JourneyJunction",
-                //   " JourneyJunction",
-                //   " JourneyJunction",
-              ]
-            }
+            words={["ThoughtCanvas", " ThoughtCanvas"]}
             loop={Infinity}
             cursor
             cursorStyle="_"
