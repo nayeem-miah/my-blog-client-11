@@ -7,11 +7,14 @@ import FeaturedBlogs from "../Pages/FeaturedBlogs/FeaturedBlogs";
 import Wishlist from "../Pages/Wishlist/Wishlist";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
+import ErrorPages from "../Pages/ErrorPage";
+import PrivetRouts from "./PrivetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPages></ErrorPages>,
     children: [
       {
         path: "/",
@@ -19,7 +22,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addBlogs",
-        element: <AddBlog></AddBlog>,
+        element: (
+          <PrivetRouts>
+            <AddBlog></AddBlog>
+          </PrivetRouts>
+        ),
       },
       {
         path: "/allBlogs",
@@ -34,13 +41,13 @@ const router = createBrowserRouter([
         element: <Wishlist></Wishlist>,
       },
       {
-        path: '/register', 
-        element: <Register></Register>
-      }, 
+        path: "/register",
+        element: <Register></Register>,
+      },
       {
-        path: '/login', 
-        element: <Login></Login>
-      }
+        path: "/login",
+        element: <Login></Login>,
+      },
     ],
   },
 ]);
