@@ -6,7 +6,7 @@ import Optional from "../../Components/Optional/Optional";
 
 const Home = () => {
   const blogs = useLoaderData();
-  console.log(blogs);
+//   console.log(blogs);
   return (
     <div className=" lg:mx-10 my-10 ">
       <Hero></Hero>
@@ -17,7 +17,7 @@ const Home = () => {
           <RecentBlogs key={blog._id} blog={blog}></RecentBlogs>
         ))}
       </div>
-      <Optional></Optional>
+     <div> <Optional></Optional></div>
       {/* newsletter section */}
       <div className="lg:my-10 my-5">
         <Newsletter></Newsletter>
