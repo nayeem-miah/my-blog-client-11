@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Hero from "../../Components/Header/Hero";
 import RecentBlogs from "../../Components/Navbar/RecentBlogs/RecentBlogs";
 import Newsletter from "../../Components/Newsletter/Newsletter";
+import Optional from "../../Components/Optional/Optional";
 
 const Home = () => {
   const blogs = useLoaderData();
@@ -16,6 +17,7 @@ const Home = () => {
           <RecentBlogs key={blog._id} blog={blog}></RecentBlogs>
         ))}
       </div>
+      <Optional></Optional>
       {/* newsletter section */}
       <div className="lg:my-10 my-5">
         <Newsletter></Newsletter>
