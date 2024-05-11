@@ -1,8 +1,9 @@
+import Hero from "../../Components/Header/Hero";
 
 const Home = () => {
     return (
-        <div className="min-h-[calc(100vh-256px)]">
-            <h2>this is home page</h2>
+        <div className=" lg:mx-10 my-10 ">
+           <Hero></Hero>
         </div>
     );
 };

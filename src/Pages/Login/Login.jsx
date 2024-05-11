@@ -1,11 +1,11 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import signIn  from '../../assets/4957136.jpg'
 import toast from "react-hot-toast";
 import { useState } from "react";
 import useAuth from "../../Components/use/useAuth";
 import { FaGithub } from "react-icons/fa6";
 const Login = () => {
-    const { logIn, googleLogin, githubLogin } =useAuth();
+    const { logIn, googleLogin, githubLogin , user, lodaing: loading} =useAuth();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const location = useLocation();
@@ -60,6 +60,7 @@ const Login = () => {
         console.error(error);
       });
   };
+  if(user || loading) return <Navigate to={'/'}></Navigate>;
     return (
       <div className='flex my-10 justify-center items-center min-h-[calc(100vh-306px)]'>
         <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>

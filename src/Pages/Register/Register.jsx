@@ -1,15 +1,16 @@
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import signUp from "../../assets/6368592.jpg";
 import useAuth from "../../Components/use/useAuth";
 import { useState } from "react";
 import { IoEye } from "react-icons/io5";
 import { BsEyeSlashFill } from "react-icons/bs";
 const Register = () => {
-  const { user, createUser, googleLogin } = useAuth();
+  const { user, createUser, googleLogin , loading} = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
   const [error, setError] = useState("");
+
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
 
@@ -31,8 +32,12 @@ const Register = () => {
       setError("Must have an Uppercase letter in the password");
       return;
     }
-    if (!/[a-z]/.test(password)) {
-      setError("Must have a lowerCase letter in the password");
+    if (!/[!@#$%^&*()_+]/.test(password)) {
+      setError("password with at least one special character");
+      return;
+    }
+    if (!/\d/.test(password)) {
+      setError("at least one numeric character");
       return;
     }
     const user = { name, email, password, photo };
@@ -56,14 +61,15 @@ const Register = () => {
       .then(result => {
         console.log(result.user);
 
-        //   toast.success( ' login successfully')
+        toast.success("login successfully");
         navigate(location?.state ? location.state : "/");
       })
       .catch(error => {
-        console.error(error);
         toast.error(error.massage);
+        console.error(error);
       });
   };
+  if(user || loading) return <Navigate to={'/'}></Navigate>;
   return (
     <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-10">
       <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl ">
