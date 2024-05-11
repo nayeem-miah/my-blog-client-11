@@ -1,8 +1,13 @@
+import { useLoaderData } from "react-router-dom";
 
 const AllBlogs = () => {
+    const datas = useLoaderData();
+    console.log(datas);
     return (
         <div className="min-h-[calc(100vh-256px)]">
-            <h3>this is not home page . It is AllBlogs Pages</h3>
+           {/* {
+            datas.map(data=>)
+           } */}
         </div>
     );
 };

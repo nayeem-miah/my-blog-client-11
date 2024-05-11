@@ -31,6 +31,7 @@ const router = createBrowserRouter([
       {
         path: "/allBlogs",
         element: <AllBlogs></AllBlogs>,
+        loader: ()=> fetch('http://localhost:5000/blogs')
       },
       {
         path: "/featuredBlogs",

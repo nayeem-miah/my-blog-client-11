@@ -4,7 +4,7 @@ import useAuth from "../../Components/use/useAuth";
 
 const AddBlog = () => {
     const {user} = useAuth();
-    const emil = user?.email;
+    const email = user?.email;
   const handleAddBlog = e => {
     e.preventDefault();
     const form = e.target;
@@ -19,7 +19,7 @@ const AddBlog = () => {
       category,
       shortDescription,
       description,
-      emil
+      email
     };
     console.log(data);
     fetch('http://localhost:5000/blogs', {
