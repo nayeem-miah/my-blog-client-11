@@ -78,12 +78,13 @@ const router = createBrowserRouter([
         element: <Login></Login>,
       },
       {
-        path: "/updateBlogs",
+        path: "/updateBlogs/:id",
         element: (
           <PrivetRouts>
             <UpdateCard></UpdateCard>
           </PrivetRouts>
         ),
+        loader : ({params})=> fetch(`http://localhost:5000/blog/${params.id}`)
       },
     ],
   },

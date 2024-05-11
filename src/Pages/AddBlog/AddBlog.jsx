@@ -33,7 +33,7 @@ const AddBlog = () => {
     .then(data=>{
         console.log(data);
         if(data.insertedId){
-            toast.success('Your data added database success')
+            toast.success('Your data added  successfully')
         }
         form.reset();
         <Navigate to={'/'}></Navigate>

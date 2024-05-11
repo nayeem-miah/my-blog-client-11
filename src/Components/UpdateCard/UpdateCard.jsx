@@ -1,11 +1,19 @@
 import toast from "react-hot-toast";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLoaderData } from "react-router-dom";
 import useAuth from "../use/useAuth";
 
 const UpdateCard = () => {
-    const {user} = useAuth();
-    const email = user?.email;
-  const handleAddBlog = e => {
+  const { user } = useAuth();
+  const email = user?.email;
+  const items = useLoaderData();
+//   console.log(items);
+  const { name,
+    image,
+    category,
+    shortDescription,
+    description} =items;
+  const _id = items._id;
+  const handleUpdated = e => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -13,41 +21,43 @@ const UpdateCard = () => {
     const category = form.category.value;
     const shortDescription = form.shortDescription.value;
     const description = form.description.value;
-    const data = {
+    const updatedData = {
       name,
       image,
       category,
       shortDescription,
       description,
-      email
+      email,
     };
-    console.log(data);
-    fetch('http://localhost:5000/blogs', {
-    method: 'POST', 
-    headers: {
-        "content-type": "application/json"
-    },
-    body: JSON.stringify(data)
+    // console.log(updatedData);
+    fetch(`http://localhost:5000/blog/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedData),
     })
-    .then(res=> res.json())
-    .then(data=>{
-        console.log(data);
-        if(data.insertedId){
-            toast.success('Your data added database success')
+      .then(res => res.json())
+      .then(data => {
+        // console.log(data);
+        if (data.modifiedCount > 0) {
+            toast.success("Your data updated success");
         }
         form.reset();
-        <Navigate to={'/'}></Navigate>
-    })
+        <Navigate to={"/allBlogs"}></Navigate>;
+      });
   };
-    return (
-        <div>
-            <h2 className="text-center text-4xl my-4">Update Blogs </h2>
-             <form onSubmit={handleAddBlog} className="my-5">
+
+  return (
+    <div>
+      <h2 className="text-center text-4xl my-4">Update Blogs : {name} </h2>
+      <form onSubmit={handleUpdated} className="my-5">
         <div className="w-1/2  mx-auto my-2">
           <label className="block text-sm font-medium">Name</label>
           <input
             type="text"
             name="name"
+            defaultValue={name}
             required
             placeholder="Title Name"
             className="flex flex-1 p-1  rounded w-full  dark:border-gray-300 dark:text-gray-800 dark:bg-gray-100 focus:dark:ring-violet-600"
@@ -58,6 +68,7 @@ const UpdateCard = () => {
           <input
             type="text"
             name="image"
+            defaultValue={image}
             required
             placeholder="image URL"
             className="flex flex-1 p-1  rounded w-full  dark:border-gray-300 dark:text-gray-800 dark:bg-gray-100 focus:dark:ring-violet-600"
@@ -72,6 +83,7 @@ const UpdateCard = () => {
             className="flex flex-1 p-1  rounded w-full  dark:border-gray-300 dark:text-gray-800 dark:bg-gray-100 focus:dark:ring-violet-600"
             placeholder="select category"
             name="category"
+            defaultValue={category}
             required
           >
             <option value="Personal Development & Self-Help" selected>
@@ -97,6 +109,7 @@ const UpdateCard = () => {
             type="text"
             name="shortDescription"
             required
+            defaultValue={shortDescription}
             placeholder="short description"
             className="flex flex-1 p-1  rounded w-full  dark:border-gray-300 dark:text-gray-800 dark:bg-gray-100 focus:dark:ring-violet-600"
           />
@@ -106,6 +119,7 @@ const UpdateCard = () => {
           <input
             type="text"
             name="description"
+            defaultValue={description}
             required
             placeholder="long description"
             className="flex flex-1 p-1  rounded w-full  dark:border-gray-300 dark:text-gray-800 dark:bg-gray-100 focus:dark:ring-violet-600"
@@ -117,8 +131,8 @@ const UpdateCard = () => {
           />
         </div>
       </form>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default UpdateCard;
