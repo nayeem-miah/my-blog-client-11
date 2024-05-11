@@ -7,7 +7,8 @@ import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 
 const Cards = ({ data }) => {
-  const { shortDescription, name,_id, image, category } = data;
+  const { shortDescription, name, _id, image, category } = data;
+//   console.log(data.email);
   return (
     <Card className="h-full">
       <CardMedia sx={{ height: 200 }} image={image} title={name} />
@@ -24,16 +25,11 @@ const Cards = ({ data }) => {
       </CardContent>
       <CardActions>
         <Link to={`/details/${_id}`}>
-          <Button size="small">
-            details
-          </Button>
+          <Button size="small">details</Button>
         </Link>
         <Link to={"/wishlist"}>
-          <Button size="small">
-          wishlist
-          </Button>
+          <Button size="small">wishlist</Button>
         </Link>
-        
       </CardActions>
     </Card>
   );

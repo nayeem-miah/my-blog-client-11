@@ -11,6 +11,7 @@ import ErrorPages from "../Pages/ErrorPage";
 import PrivetRouts from "./PrivetRoute/PrivetRoute";
 import Details from "../Components/Details/Details";
 import RecentDetails from "../Components/Navbar/RecentBlogs/recentDetails";
+import UpdateCard from "../Components/UpdateCard/UpdateCard";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: ()=> fetch('http://localhost:5000/recent')
+        loader: () => fetch("http://localhost:5000/recent"),
       },
       {
         path: "/addBlogs",
@@ -34,17 +35,27 @@ const router = createBrowserRouter([
       {
         path: "/allBlogs",
         element: <AllBlogs></AllBlogs>,
-        loader: ()=> fetch('http://localhost:5000/blogs')
+        loader: () => fetch("http://localhost:5000/blogs"),
       },
       {
         path: "/details/:id",
-        element: <Details></Details>,
-        loader: ({params})=> fetch(`http://localhost:5000/blogs/${params.id}`)
+        element: (
+          <PrivetRouts>
+            <Details></Details>
+          </PrivetRouts>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/blogs/${params.id}`),
       },
       {
         path: "/recentDetails/:id",
-        element: <RecentDetails></RecentDetails>,
-        loader: ({params})=> fetch(`http://localhost:5000/recentDetails/${params.id}`)
+        element: (
+          <PrivetRouts>
+            <RecentDetails></RecentDetails>
+          </PrivetRouts>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/recentDetails/${params.id}`),
       },
       {
         path: "/featuredBlogs",
@@ -65,6 +76,14 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/updateBlogs",
+        element: (
+          <PrivetRouts>
+            <UpdateCard></UpdateCard>
+          </PrivetRouts>
+        ),
       },
     ],
   },

@@ -1,10 +1,20 @@
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
-import { useLoaderData } from "react-router-dom";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
+import { Link, useLoaderData } from "react-router-dom";
+import useAuth from "../use/useAuth";
 
 const Details = () => {
+  const { user } = useAuth();
+//   console.log(user.email);
   const details = useLoaderData();
-  const { shortDescription, name, image, description, category } = details;
-//   console.log(details);
+  const { shortDescription, name, image, description, email, category } =
+    details;
+  console.log(details.email);
   return (
     <Card className="min-h-[calc(100vh-256px)] lg:mx-10 md:mx-4 my-5">
       <CardMedia sx={{ height: 400 }} image={image} title={name} />
@@ -17,13 +27,20 @@ const Details = () => {
           {category}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          <span className="font-bold">shortDescription:</span>{" "}
+          <span className="font-bold">shortDescription:</span>
           {shortDescription}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           <span className="font-bold">description:</span> {description}
         </Typography>
       </CardContent>
+      <div>
+        {email === user.email && (
+          <Link className="w-full mx-auto my-4 h-full" to={"/updateBlogs"}>
+            <p  size="small " className="btn btn-secondary text-center  mx-auto w-1/3  my-4 ">update</p>
+          </Link>
+        )}
+      </div>
     </Card>
   );
 };
