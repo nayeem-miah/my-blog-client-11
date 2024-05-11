@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 const Details = () => {
   const details = useLoaderData();
   const { shortDescription, name, image, description, category } = details;
-  console.log(details);
+//   console.log(details);
   return (
     <Card className="min-h-[calc(100vh-256px)] lg:mx-10 md:mx-4 my-5">
       <CardMedia sx={{ height: 400 }} image={image} title={name} />

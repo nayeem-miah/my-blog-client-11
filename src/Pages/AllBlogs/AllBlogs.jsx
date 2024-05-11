@@ -3,7 +3,7 @@ import Cards from "../../Components/Card/Card";
 
 const AllBlogs = () => {
     const datas = useLoaderData();
-    console.log(datas);
+    // console.log(da   tas);
     return (
         <div className="min-h-[calc(100vh-256px)]">
             <h2 className="text-center text-4xl my-6">All Blogs </h2>
