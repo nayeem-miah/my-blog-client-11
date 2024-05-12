@@ -5,7 +5,7 @@ import { useState } from "react";
 import useAuth from "../../Components/use/useAuth";
 import { FaGithub } from "react-icons/fa6";
 const Login = () => {
-    const { logIn, googleLogin, githubLogin , user, lodaing: loading} =useAuth();
+    const { logIn, googleLogin, githubLogin , user, loading} =useAuth();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const location = useLocation();
@@ -14,12 +14,12 @@ const Login = () => {
   const handleLOgin = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name = form.name.value;
+   
     const email = form.email.value;
     const password = form.password.value;
-    const photo = form.photo.value;
 
-    const user = { name, email, password, photo };
+
+    const user = {  email, password,  };
     console.log(user);
 
     logIn(email, password)
