@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const Cards = ({ data }) => {
   const { shortDescription, name, _id, image, category } = data;
-//   console.log(data.email);
+  console.log(data.email);
   return (
     <Card className="h-full">
       <CardMedia sx={{ height: 200 }} image={image} title={name} />

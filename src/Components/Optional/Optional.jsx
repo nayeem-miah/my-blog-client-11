@@ -33,12 +33,8 @@ const Optional = () => {
           </div>
           <div className="p-4 space-y-2 text-sm dark:text-gray-600">
             <p>
-              Overall, my experience with the tourist sport site was nothing
-              short of exceptional. It not only helped me plan an unforgettable
-              adventure but also provided the support and resources I needed to
-              make the most of my trip. I highly recommend this site to anyone
-              looking to explore the great outdoors and embark on their own
-              adventure journey.{" "}
+              Overall, my experience with the Blogs side awsome and find. if
+              this website add card unique degain then a perfect website...
             </p>
           </div>
         </div>
@@ -71,11 +67,11 @@ const Optional = () => {
           </div>
           <div className="p-4 space-y-2 text-sm dark:text-gray-600">
             <p>
-              I recently had the pleasure of using the tourist sport site for
-              planning my adventure trip, and I must say, it exceeded all my
-              expectations. From the moment I landed on the homepage, I was
-              greeted with stunning visuals and user-friendly navigation that
-              made exploring the site a breeze.
+              -If your website has a large and active community, consider
+              enlisting the help of trusted users to assist with comment
+              moderation. By following these tips, you can effectively manage
+              comments on your blog website and create a positive and engaging
+              environment for your readers.
             </p>
           </div>
         </div>
@@ -108,11 +104,7 @@ const Optional = () => {
           </div>
           <div className="p-4 space-y-2 text-sm dark:text-gray-600">
             <p>
-              I recently had the pleasure of using the tourist sport site for
-              planning my adventure trip, and I must say, it exceeded all my
-              expectations. From the moment I landed on the homepage, I was
-              greeted with stunning visuals and user-friendly navigation that
-              made exploring the site a breeze.
+            Depending on the platform you are using, there may be moderation tools available to help you manage comments more efficiently, such as filtering for certain keywords or automatically flagging potentially inappropriate comments.
             </p>
           </div>
         </div>

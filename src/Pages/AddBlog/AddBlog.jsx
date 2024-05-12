@@ -87,8 +87,8 @@ const AddBlog = () => {
             <option value="Science & Technology" selected>
               Science & Technology
             </option>
-            <option value="Travel & Adventure" selected>
-              Travel & Adventure
+            <option value="Wellness" selected>
+            Wellness
             </option>
           </select>
         </div>

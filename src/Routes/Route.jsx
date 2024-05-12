@@ -59,7 +59,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/featuredBlogs",
-        element: <FeaturedBlogs></FeaturedBlogs>,
+        element: (
+          <PrivetRouts>
+            <FeaturedBlogs></FeaturedBlogs>
+          </PrivetRouts>
+        ),
       },
       {
         path: "/wishlist",
@@ -84,7 +88,8 @@ const router = createBrowserRouter([
             <UpdateCard></UpdateCard>
           </PrivetRouts>
         ),
-        loader : ({params})=> fetch(`http://localhost:5000/blog/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/blog/${params.id}`),
       },
     ],
   },
