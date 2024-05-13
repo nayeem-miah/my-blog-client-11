@@ -2,7 +2,8 @@ import { useLoaderData } from "react-router-dom";
 
 const FeaturedBlogs = () => {
   const users = useLoaderData();
-  console.log(users);
+      
+  // console.log(users?.photo);
 
   // ----------------------------------
 
@@ -39,9 +40,8 @@ const FeaturedBlogs = () => {
   //     });
   // };
   return (
-    <div className="min-h-[calc(100vh-256px)] lg:mx-10 mx-1">
-      <h4>FeaturedBlogs: {users.length}</h4>
-      <table className="w-full">
+    <div className="min-h-[calc(100vh-256px)] lg:mx-10 mx-1 border my-5">
+      <table className="w-full border mx-1">
         <thead>
           <tr className="border">
             <th>no</th>
@@ -52,18 +52,13 @@ const FeaturedBlogs = () => {
           </tr>
         </thead>
 
-        {users.map((data, i) => (
+        {users?.map((data, i) => (
           <tbody key={data._id}>
             <tr>
               <td>{(i = i + 1)}</td>
               <td>{data?.displayName}</td>
               <td>
-                {(
-                  <img
-                    src={data?.photoURL}
-                    className="rounded-full h-10 w-10"
-                  />
-                ) || (
+                {<img src={data?.photo} className="rounded-full h-10 w-10" /> || (
                   <img
                     src="https://i.ibb.co/zZKYVpC/istockphoto-1341046662-612x612.jpg"
                     className="rounded-full h-10 w-10"

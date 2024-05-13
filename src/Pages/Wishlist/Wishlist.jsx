@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 // import Swal from "sweetalert2";
 import useAuth from "../../Components/use/useAuth";
-import WishListCards from "./WishListCards";
-import { useLoaderData } from "react-router-dom";
 
 const Wishlist = () => {
-    const daata = useLoaderData();
-    console.log(daata);
-//     const { user } = useAuth();
-//     const [users, setUsers] = useState([]);
+    // const daata = useLoaderData();
+    console.log(users);
+    const { user } = useAuth();
+    const [users, setUsers] = useState([]);
 //  console.log(users);
 //     // const handleDelete = id => {
 //     //   // are you sure
@@ -41,20 +39,20 @@ const Wishlist = () => {
 //     //     });
 //     // };
     
-//   useEffect(() => {
-//     fetch(`http://localhost:5000/wishlist/${user?.email}`)
-//       .then(res => res.json())
-//       .then(data => {
-//         console.log(data);
-//         setUsers(data);
-//       });
-//   }, [user]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/wishlis/${user?.email}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setUsers(data);
+      });
+  }, [user]);
     return (
         <div>
             <h3>Wishlist :</h3>
-            {
+            {/* {
                 daata.map(item=> <WishListCards key={item._id} item={item}></WishListCards>)
-            }
+            } */}
             {/* {
                 users.map(item=> <WishListCards key={item._id} item={item}></WishListCards>)
             } */}

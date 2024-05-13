@@ -13,7 +13,8 @@ const Cards = ({ data }) => {
   const { user } = useAuth();
   // const wishlistEmail = user.email;
   const { shortDescription, name, _id, image, category } = data;
-
+    const photo =user?.photoURL;
+  console.log(photo);
   const handleButton = () => {
     const { shortDescription, name, _id, image, category } = data;
     const newData = {
@@ -23,6 +24,7 @@ const Cards = ({ data }) => {
       image,
       category,
       user,
+      photo
     };
     fetch("http://localhost:5000/wishlist", {
       method: "POST",
