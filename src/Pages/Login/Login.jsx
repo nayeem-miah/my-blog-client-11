@@ -1,4 +1,4 @@
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import signIn  from '../../assets/4957136.jpg'
 import toast from "react-hot-toast";
 import { useState } from "react";
@@ -6,7 +6,9 @@ import useAuth from "../../Components/use/useAuth";
 import { FaGithub } from "react-icons/fa6";
 const Login = () => {
     const { logIn, googleLogin, githubLogin , user, loading} =useAuth();
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [success, setSuccess] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
@@ -19,8 +21,8 @@ const Login = () => {
     const password = form.password.value;
 
 
-    const user = {  email, password,  };
-    console.log(user);
+    // const user = {  email, password,  };
+    // console.log(user);
 
     logIn(email, password)
       .then(() => {
@@ -60,7 +62,8 @@ const Login = () => {
         console.error(error);
       });
   };
-  if(user || loading) return <Navigate to={'/'}></Navigate>;
+  if(user || loading) return 
+  // <Navigate to={'/'}></Navigate>;
     return (
       <div className='flex my-10 justify-center items-center min-h-[calc(100vh-306px)]'>
         <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>

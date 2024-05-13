@@ -5,10 +5,37 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
+import useAuth from "../use/useAuth";
+import toast from "react-hot-toast";
+// import { useState } from "react";
 
 const Cards = ({ data }) => {
+  const { user } = useAuth();
+  // const wishlistEmail = user.email;
   const { shortDescription, name, _id, image, category } = data;
-  console.log(data.email);
+
+  const handleButton = () => {
+    const { shortDescription, name, _id, image, category } = data;
+    const newData = {
+      shortDescription,
+      name,
+      _id,
+      image,
+      category,
+      user,
+    };
+    fetch("http://localhost:5000/wishlist", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(newData),
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.insertedId) {
+          toast.success("Your data added  successfully");
+        }
+      });
+  };
   return (
     <Card className="h-full">
       <CardMedia sx={{ height: 200 }} image={image} title={name} />
@@ -27,9 +54,10 @@ const Cards = ({ data }) => {
         <Link to={`/details/${_id}`}>
           <Button size="small">details</Button>
         </Link>
-        <Link to={"/wishlist"}>
-          <Button size="small">wishlist</Button>
-        </Link>
+
+        <Button onClick={handleButton} size="small">
+          wishlist
+        </Button>
       </CardActions>
     </Card>
   );

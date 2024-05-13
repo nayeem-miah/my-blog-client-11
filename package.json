@@ -13,6 +13,8 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.17",
+    "@tanstack/react-query": "^5.36.0",
+    "@tanstack/react-table": "^8.17.0",
     "axios": "^1.6.8",
     "firebase": "^10.11.1",
     "react": "^18.2.0",
