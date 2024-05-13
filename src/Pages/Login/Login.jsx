@@ -34,7 +34,7 @@ const Login = () => {
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
-        toast.error(error.massage)
+        toast.error("please valid email or password")
 
         setError(error.massage);
       });

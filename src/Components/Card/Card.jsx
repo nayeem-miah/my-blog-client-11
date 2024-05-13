@@ -12,11 +12,15 @@ import toast from "react-hot-toast";
 const Cards = ({ data }) => {
   const { user } = useAuth();
   // const wishlistEmail = user.email;
-  const { shortDescription, name, _id, image, category } = data;
-    const photo =user?.photoURL;
-  console.log(photo);
+  const { shortDescription, name, _id, image, category} = data;
+  const photo = user?.photoURL;
+  // const email = data?.email;
+  // console.log(user.email);
   const handleButton = () => {
-    const { shortDescription, name, _id, image, category } = data;
+    // if (!user?.email == email) {
+    //   return toast.error("already added wishlist");
+    // }
+
     const newData = {
       shortDescription,
       name,
@@ -24,7 +28,7 @@ const Cards = ({ data }) => {
       image,
       category,
       user,
-      photo
+      photo,
     };
     fetch("http://localhost:5000/wishlist", {
       method: "POST",
