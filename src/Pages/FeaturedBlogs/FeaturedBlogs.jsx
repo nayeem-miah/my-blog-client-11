@@ -2,8 +2,6 @@ import { useLoaderData } from "react-router-dom";
 
 const FeaturedBlogs = () => {
   const users = useLoaderData();
-      
-  // console.log(users?.photo);
 
   // ----------------------------------
 
@@ -58,7 +56,9 @@ const FeaturedBlogs = () => {
               <td>{(i = i + 1)}</td>
               <td>{data?.displayName}</td>
               <td>
-                {<img src={data?.photo} className="rounded-full h-10 w-10" /> || (
+                {(
+                  <img src={data?.photo} className="rounded-full h-10 w-10" />
+                ) || (
                   <img
                     src="https://i.ibb.co/zZKYVpC/istockphoto-1341046662-612x612.jpg"
                     className="rounded-full h-10 w-10"
