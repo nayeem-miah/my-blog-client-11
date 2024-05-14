@@ -12,7 +12,8 @@ import PrivetRouts from "./PrivetRoute/PrivetRoute";
 import Details from "../Components/Details/Details";
 import RecentDetails from "../Components/Navbar/RecentBlogs/recentDetails";
 import UpdateCard from "../Components/UpdateCard/UpdateCard";
-import ShowComment from "../Components/Details/ShowComment";
+
+// import WishListCardDetails from "../Pages/Wishlist/WishListCardsDetails";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: "/allBlogs",
         element: <AllBlogs></AllBlogs>,
-        loader: () => fetch("http://localhost:5000/blogs"),
+        // loader: () => fetch("http://localhost:5000/blogs"),
       },
       {
         path: "/details/:id",
@@ -48,6 +49,16 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/blogs/${params.id}`),
       },
+      // {
+      //   path: "/wishlis/:id",
+      //   element: (
+      //     <PrivetRouts>
+      //       <WishListCardDetails></WishListCardDetails>
+      //     </PrivetRouts>
+      //   ),
+      //   loader: ({ params }) =>
+      //     fetch(`http://localhost:5000/wishlis/${params.id}`),
+      // },
 
       {
         path: "/recentDetails/:id",

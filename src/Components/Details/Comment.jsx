@@ -31,7 +31,7 @@ const Comment = ({ email }) => {
         // <Navigate to={'/details'}></Navigate>
       });
   };
-  console.log(email);
+  // console.log(email);
   return (
     <div>
       <h2 className="text-center text-4xl">Client Chronicles</h2>

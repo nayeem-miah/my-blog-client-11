@@ -26,7 +26,7 @@ const AddBlog = () => {
       displayName
 
     };
-    console.log(data);
+    // console.log(data);
     fetch('http://localhost:5000/blogs', {
     method: 'POST', 
     headers: {
