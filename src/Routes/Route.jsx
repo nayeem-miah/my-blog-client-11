@@ -12,6 +12,7 @@ import PrivetRouts from "./PrivetRoute/PrivetRoute";
 import Details from "../Components/Details/Details";
 import RecentDetails from "../Components/Navbar/RecentBlogs/recentDetails";
 import UpdateCard from "../Components/UpdateCard/UpdateCard";
+import ShowComment from "../Components/Details/ShowComment";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,7 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/blogs/${params.id}`),
       },
+
       {
         path: "/recentDetails/:id",
         element: (
