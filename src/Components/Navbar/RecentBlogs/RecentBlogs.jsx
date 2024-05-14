@@ -8,10 +8,40 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
+import toast from "react-hot-toast";
 
 const RecentBlogs = ({ blog }) => {
   const user = useAuth();
   const { category, description, image, _id, title } = blog;
+
+  const photo = user?.photoURL;
+
+  const handleButton = () => {
+    // if (!user?.email == email) {
+    //   return toast.error("already added wishlist");
+    // }
+
+    const newData = {
+      description,
+      title,
+      _id,
+      image,
+      category,
+      user,
+      photo,
+    };
+    fetch("http://localhost:5000/wishlistRecent", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(newData),
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.insertedId) {
+          toast.success("Your data added  successfully");
+        }
+      });
+  };
   return (
     <div>
       <Card className="h-full">
@@ -31,9 +61,9 @@ const RecentBlogs = ({ blog }) => {
           <Link to={`/recentDetails/${_id}`}>
             <Button size="small">details</Button>
           </Link>
-          <Link to={user ? "/wishlist" : "/login"}>
-            <Button size="small">wishlist</Button>
-          </Link>
+      
+            <Button onClick={handleButton} size="small">wishlist</Button>
+         
         </CardActions>
       </Card>
     </div>

@@ -38,10 +38,10 @@ const FeaturedBlogs = () => {
   //     });
   // };
   return (
-    <div className="min-h-[calc(100vh-256px)] lg:mx-10 mx-1 border my-5">
-      <table className="w-full border mx-1">
+    <div className="min-h-[calc(100vh-256px)] lg:mx-10 mx-1 border my-5 lg:p-3">
+      <table className="w-full  mx-1">
         <thead>
-          <tr className="border">
+          <tr className="p-4 shadow-lg">
             <th>no</th>
             <th>name</th>
             <th>image</th>

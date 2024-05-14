@@ -6,11 +6,14 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
+
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-const WishListCards = ({ item }) => {
+const WishListCards = ({ item, handleDelete }) => {
+  // const [users, setUsers] = useState([]);
   const { shortDescription, name, image, _id, category } = item;
+
   return (
     <Card className="h-full">
       <CardMedia sx={{ height: 200 }} image={image} title={name} />
@@ -29,7 +32,9 @@ const WishListCards = ({ item }) => {
         <Link to={`/details/${_id}`}>
           <Button size="small">details</Button>
         </Link>
-        <Button><MdDeleteForever  className="text-4xl text-red-500"></MdDeleteForever></Button>
+        <Button onClick={() => handleDelete(_id)}>
+          <MdDeleteForever className="text-4xl text-red-500"></MdDeleteForever>
+        </Button>
       </CardActions>
     </Card>
   );
