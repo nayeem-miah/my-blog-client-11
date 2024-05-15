@@ -14,15 +14,15 @@ const Comment = ({ email }) => {
     const displayName = user?.displayName;
     const comment = form.comment.value;
     const userComment = { email, comment, photo, displayName };
-    console.log(userComment);
-    fetch("http://localhost:5000/comment", {
+    // console.log(userComment);
+    fetch("https://my-blog-server-pi.vercel.app/comment", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(userComment),
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
 
         if (data.insertedId) {
           toast.success("successfully comment");

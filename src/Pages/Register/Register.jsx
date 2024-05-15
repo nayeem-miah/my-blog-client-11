@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 import toast from "react-hot-toast";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import signUp from "../../assets/6368592.jpg";
 import useAuth from "../../Components/use/useAuth";
 import { useState } from "react";
 import { IoEye } from "react-icons/io5";
 import { BsEyeSlashFill } from "react-icons/bs";
 const Register = () => {
-  const {  createUser, googleLogin , } = useAuth();
+  const { createUser, googleLogin } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
   const [error, setError] = useState("");
@@ -53,8 +53,8 @@ const Register = () => {
       })
       .catch(error => {
         console.error(error);
-        toast.error(error.massage);
         setError(error.massage);
+        toast.error(error);
       });
   };
   const handleGoogleRegister = () => {
@@ -200,6 +200,11 @@ const Register = () => {
                   </span>
                 </span>
               </div>
+              {/* error */}
+
+              {error && <p className="text-red-600">{error}</p>}
+
+              {success && <p className="text-green-600">{success}</p>}
             </div>
             <div className="mt-6">
               <button

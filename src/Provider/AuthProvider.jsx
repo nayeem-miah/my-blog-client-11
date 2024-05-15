@@ -59,14 +59,14 @@ const AuthProvider = ({ children }) => {
       // token
       if (currentUser) {
        
-        axios.post('http://localhost:5000/jwt',loggedUSer, 
+        axios.post('https://my-blog-server-pi.vercel.app/jwt',loggedUSer, 
         { withCredentials: true })
         .then(res => {
           // console.log("token response ", res.data);
         });
       }
       else {
-        axios.post('http://localhost:5000/logout', loggedUSer, {
+        axios.post('https://my-blog-server-pi.vercel.app/logout', loggedUSer, {
           withCredentials : true, 
 
         })

@@ -9,6 +9,7 @@ const Navbar = () => {
   const [open, setOpen] = useState();
   const handleLogout = () => {
     logout()
+      // eslint-disable-next-line no-unused-vars
       .then(result => {
         Swal.fire({
           position: "top-center",
@@ -17,7 +18,7 @@ const Navbar = () => {
           showConfirmButton: false,
           timer: 2000,
         });
-        console.log(result.user);
+        // console.log(result.user);
       })
       .catch(error => {
         console.error(error);

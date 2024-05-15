@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import signIn  from '../../assets/4957136.jpg'
 import toast from "react-hot-toast";
@@ -5,10 +6,10 @@ import { useState } from "react";
 import useAuth from "../../Components/use/useAuth";
 import { FaGithub } from "react-icons/fa6";
 const Login = () => {
-    const { logIn, googleLogin, githubLogin , user, loading} =useAuth();
-  // eslint-disable-next-line no-unused-vars
+    const { logIn, googleLogin, githubLogin } =useAuth();
+ 
   const [error, setError] = useState("");
-  // eslint-disable-next-line no-unused-vars
+ 
   const [success, setSuccess] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
@@ -62,7 +63,7 @@ const Login = () => {
         console.error(error);
       });
   };
-  if(user || loading) return 
+  // if(user || loading) return 
   // <Navigate to={'/'}></Navigate>;
     return (
       <div className='flex my-10 justify-center items-center min-h-[calc(100vh-306px)]'>
@@ -168,6 +169,7 @@ const Login = () => {
                   type='password'
                 />
               </div>
+              {error && <p className="text-red-600">{error}</p>}
               <div className='mt-6'>
                 <button
                   type='submit'

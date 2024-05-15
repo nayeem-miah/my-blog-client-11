@@ -26,7 +26,7 @@ const Cards = ({ data }) => {
       user,
       photo,
     };
-    fetch("http://localhost:5000/wishlist", {
+    fetch("https://my-blog-server-pi.vercel.app/wishlist", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newData),
