@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("https://my-blog-server-pi.vercel.app/recent"),
+        loader: () => fetch("http://localhost:5000/recent"),
       },
       {
         path: "/addBlogs",
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: "/allBlogs",
         element: <AllBlogs></AllBlogs>,
-        // loader: () => fetch("https://my-blog-server-pi.vercel.app/blogs"),
+        // loader: () => fetch("http://localhost:5000/blogs"),
       },
       {
         path: "/details/:id",
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
           </PrivetRouts>
         ),
         loader: ({ params }) =>
-          fetch(`https://my-blog-server-pi.vercel.app/blogs/${params.id}`),
+          fetch(`http://localhost:5000/blogs/${params.id}`),
       },
       // {
       //   path: "/wishlis/:id",
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
       //     </PrivetRouts>
       //   ),
       //   loader: ({ params }) =>
-      //     fetch(`https://my-blog-server-pi.vercel.app/wishlis/${params.id}`),
+      //     fetch(`http://localhost:5000/wishlis/${params.id}`),
       // },
 
       {
@@ -68,12 +68,12 @@ const router = createBrowserRouter([
           </PrivetRouts>
         ),
         loader: ({ params }) =>
-          fetch(`https://my-blog-server-pi.vercel.app/recentDetails/${params.id}`),
+          fetch(`http://localhost:5000/recentDetails/${params.id}`),
       },
       {
         path: "/featuredBlogs",
         element: <FeaturedBlogs></FeaturedBlogs>,
-        loader: () => fetch("https://my-blog-server-pi.vercel.app/featuredBlogs"),
+        loader: () => fetch("http://localhost:5000/featuredBlogs"),
       },
       {
         path: "/wishlist",
@@ -99,7 +99,7 @@ const router = createBrowserRouter([
           </PrivetRouts>
         ),
         loader: ({ params }) =>
-          fetch(`https://my-blog-server-pi.vercel.app/blog/${params.id}`),
+          fetch(`http://localhost:5000/blog/${params.id}`),
       },
     ],
   },

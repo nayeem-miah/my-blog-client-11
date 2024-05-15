@@ -27,7 +27,7 @@ const AddBlog = () => {
 
     };
     // console.log(data);
-    fetch('https://my-blog-server-pi.vercel.app/blogs', {
+    fetch('http://localhost:5000/blogs', {
     method: 'POST', 
     headers: {
         "content-type": "application/json"

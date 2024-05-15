@@ -9,7 +9,7 @@ const FeaturedBlogs = () => {
   //  console.log(user?.displayName);
   // const handleDelete = id => {
   //   // are you sure
-  //   fetch(` https://my-blog-server-pi.vercel.app/featuredBlogs/${id}`, {
+  //   fetch(` http://localhost:5000/featuredBlogs/${id}`, {
   //     method: "DELETE",
   //   })
   //     .then(res => res.json())

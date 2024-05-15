@@ -10,7 +10,7 @@ const AllBlogs = () => {
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios(
-        `https://my-blog-server-pi.vercel.app/blogs?&search=${search}`)
+        `http://localhost:5000/blogs?&search=${search}`)
         setDatas(data)
     };
     // console.log(data);

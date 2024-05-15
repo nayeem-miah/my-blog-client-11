@@ -4,7 +4,7 @@ const ShowComment = () => {
   const [show, setShow] = useState([]);
 
   useEffect(() => {
-    fetch("https://my-blog-server-pi.vercel.app/comment")
+    fetch("http://localhost:5000/comment")
       .then(res => res.json())
       .then(data => {
         // console.log(data);

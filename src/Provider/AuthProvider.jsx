@@ -1,4 +1,5 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+
 import {
   GithubAuthProvider,
   GoogleAuthProvider,
@@ -59,14 +60,14 @@ const AuthProvider = ({ children }) => {
       // token
       if (currentUser) {
        
-        axios.post('https://my-blog-server-pi.vercel.app/jwt',loggedUSer, 
+        axios.post('http://localhost:5000/jwt',loggedUSer, 
         { withCredentials: true })
         .then(res => {
           // console.log("token response ", res.data);
         });
       }
       else {
-        axios.post('https://my-blog-server-pi.vercel.app/logout', loggedUSer, {
+        axios.post('http://localhost:5000/logout', loggedUSer, {
           withCredentials : true, 
 
         })

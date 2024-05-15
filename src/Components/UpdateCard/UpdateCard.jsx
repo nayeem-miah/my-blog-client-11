@@ -30,7 +30,7 @@ const UpdateCard = () => {
       email,
     };
     // console.log(updatedData);
-    fetch(`https://my-blog-server-pi.vercel.app/blog/${_id}`, {
+    fetch(`http://localhost:5000/blog/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

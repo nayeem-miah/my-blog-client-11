@@ -8,10 +8,10 @@ const Wishlist = () => {
   const { user } = useAuth();
   const [users, setUsers] = useState([]);
 
-  // const wishlistUrl = `https://my-blog-server-pi.vercel.app/wishlists/${user?.email}`
-  // const wishlistRecentUrl = `https://my-blog-server-pi.vercel.app/wishlistRecent/${user?.email}`
+  // const wishlistUrl = `http://localhost:5000/wishlists/${user?.email}`
+  // const wishlistRecentUrl = `http://localhost:5000/wishlistRecent/${user?.email}`
   useEffect(() => {
-    fetch(`https://my-blog-server-pi.vercel.app/wishlists/${user?.email}`)
+    fetch(`http://localhost:5000/wishlists/${user?.email}`, {credentials:"include"})
       .then(res => res.json())
       .then(data => {
         // console.log(data);
@@ -21,7 +21,7 @@ const Wishlist = () => {
 
   const handleDelete = id => {
     //   // are you sure
-    fetch(`https://my-blog-server-pi.vercel.app/wishlist/${id}`, {
+    fetch(`http://localhost:5000/wishlist/${id}`, {
       method: "DELETE",
     })
       .then(res => res.json())
