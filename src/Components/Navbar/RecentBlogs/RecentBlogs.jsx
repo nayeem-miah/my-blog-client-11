@@ -17,10 +17,6 @@ const RecentBlogs = ({ blog }) => {
   const photo = user?.photoURL;
 
   const handleButton = () => {
-    // if (!user?.email == email) {
-    //   return toast.error("already added wishlist");
-    // }
-
     const newData = {
       description,
       title,
@@ -61,9 +57,10 @@ const RecentBlogs = ({ blog }) => {
           <Link to={`/recentDetails/${_id}`}>
             <Button size="small">details</Button>
           </Link>
-      
-            <Button onClick={handleButton} size="small">wishlist</Button>
-         
+
+          <Button onClick={handleButton} size="small">
+            wishlist
+          </Button>
         </CardActions>
       </Card>
     </div>

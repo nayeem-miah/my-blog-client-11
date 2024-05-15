@@ -17,9 +17,9 @@ const Home = () => {
           <RecentBlogs key={blog._id} blog={blog}></RecentBlogs>
         ))}
       </div>
-     <div> <Optional></Optional></div>
+     <div className="lg:my-16 my-5"> <Optional></Optional></div>
       {/* newsletter section */}
-      <div className="lg:my-10 my-5">
+      <div className="lg:my-16 my-5">
         <Newsletter></Newsletter>
       </div>
     </div>

@@ -7,19 +7,15 @@ import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import useAuth from "../use/useAuth";
 import toast from "react-hot-toast";
-// import { useState } from "react";
 
 const Cards = ({ data }) => {
   const { user } = useAuth();
   // const wishlistEmail = user.email;
   const { shortDescription, name, _id, image, category} = data;
   const photo = user?.photoURL;
-  // const email = data?.email;
-  // console.log(user.email);
+  
   const handleButton = () => {
-    // if (!user?.email == email) {
-    //   return toast.error("already added wishlist");
-    // }
+   
 
     const newData = {
       shortDescription,

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import toast from "react-hot-toast";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import signUp from "../../assets/6368592.jpg";
@@ -6,7 +7,7 @@ import { useState } from "react";
 import { IoEye } from "react-icons/io5";
 import { BsEyeSlashFill } from "react-icons/bs";
 const Register = () => {
-  const { user, createUser, googleLogin , loading} = useAuth();
+  const {  createUser, googleLogin , } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
   const [error, setError] = useState("");
@@ -22,7 +23,7 @@ const Register = () => {
     const photo = form.photo.value;
     const name = form.name.value;
     const info = { email, password, photo, name };
-    console.log(info);
+    // console.log(info);
 
     if (password.length < 6) {
       setError("password must be 6 characters");
@@ -41,7 +42,7 @@ const Register = () => {
       return;
     }
     const user = { name, email, password, photo };
-    console.log(user);
+    // console.log(user);
 
     createUser(email, password)
       .then(result => {
