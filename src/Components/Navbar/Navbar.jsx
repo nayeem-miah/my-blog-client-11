@@ -106,7 +106,7 @@ const Navbar = () => {
             </button>
           )}
           {user ? (
-            <button
+            <p
               onClick={() => setOpen(!open)}
               className="border-2 border-[#FF497C] rounded-full w-[40px]"
             >
@@ -115,11 +115,11 @@ const Navbar = () => {
                 alt=""
                 className="w-10 h-10 rounded-full"
               />
-            </button>
+            </p>
           ) : (
             <Link
               to={"/login"}
-              className="bg-[#FF497C] hover:bg-[#ab3154]  duration-200 text-white font-bold px-4 xl:px-6 py-1 rounded"
+              className="bg-[#FF497C] hover:bg-[#ab3154]  duration-200 text-white font-bold px-4 xl:px-6 py-0.5 rounded"
             >
               Login
             </Link>

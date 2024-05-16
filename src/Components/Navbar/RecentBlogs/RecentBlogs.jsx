@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom";
 import useAuth from "../../use/useAuth";
+
 import {
-  Button,
+  
   Card,
   CardActions,
   CardContent,
@@ -12,7 +14,7 @@ import toast from "react-hot-toast";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-
+import "../../../../src/App.css"
 const RecentBlogs = ({ blog }) => {
   const user = useAuth();
   const { category, description, image, _id, title } = blog;
@@ -64,12 +66,12 @@ const RecentBlogs = ({ blog }) => {
         </CardContent>
         <CardActions>
           <Link to={`/recentDetails/${_id}`}>
-            <Button size="small">details</Button>
+            <button className="text" size="small">details</button>
           </Link>
 
-          <Button onClick={handleButton} size="small">
+          {/* <Button onClick={handleButton} size="small">
             wishlist
-          </Button>
+          </Button> */}
         </CardActions>
       </Card>
     </div>

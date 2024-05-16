@@ -61,12 +61,12 @@ const Cards = ({ data }) => {
       </CardContent>
       <CardActions>
         <Link to={`/details/${_id}`}>
-          <Button size="small">details</Button>
+          <button size="small">details</button>
         </Link>
 
-        <Button onClick={handleButton} size="small">
+        <button onClick={handleButton} size="small">
           wishlist
-        </Button>
+        </button>
       </CardActions>
     </Card>
   );

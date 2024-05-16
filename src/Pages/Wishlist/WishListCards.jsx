@@ -1,5 +1,5 @@
 import {
-  Button,
+
   Card,
   CardActions,
   CardContent,
@@ -35,11 +35,11 @@ const WishListCards = ({ item, handleDelete }) => {
       </CardContent>
       <CardActions>
         <Link to={`/wishlistDetils/${_id}`}>
-          <Button size="small">details</Button>
+          <button>details</button>
         </Link>
-        <Button onClick={() => handleDelete(_id)}>
-          <MdDeleteForever className="text-4xl text-red-500"></MdDeleteForever>
-        </Button>
+        <p onClick={() => handleDelete(_id)}>
+          <MdDeleteForever className="text-4xl ml-10 text-red-500"></MdDeleteForever>
+        </p>
       </CardActions>
     </Card>
   );
