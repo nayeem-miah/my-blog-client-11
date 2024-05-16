@@ -80,7 +80,7 @@ const Navbar = () => {
             {nabLinks}
           </ul>
         </div>
-        <a className="text-xl lg:text-2xl text-green-600">
+        <a className="text-xs lg:text-2xl text-green-600">
           {" "}
           <Typewriter
             words={["TechTrek Blogs"]}

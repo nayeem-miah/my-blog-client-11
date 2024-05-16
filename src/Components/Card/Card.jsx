@@ -7,13 +7,18 @@ import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import useAuth from "../use/useAuth";
 import toast from "react-hot-toast";
+import Aos from 'aos';
+import 'aos/dist/aos.css'
+import { useEffect } from 'react';
 
 const Cards = ({ data }) => {
   const { user } = useAuth();
   // const wishlistEmail = user.email;
   const { shortDescription, name, _id, image, category} = data;
   const photo = user?.photoURL;
-  
+  useEffect(()=>{
+    Aos.init();
+  },[])
   const handleButton = () => {
    
 
@@ -26,7 +31,7 @@ const Cards = ({ data }) => {
       user,
       photo,
     };
-    fetch("http://localhost:5000/wishlist", {
+    fetch("https://b9a11-server-side-nayeem-miah.vercel.app/wishlist", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newData),
@@ -39,7 +44,9 @@ const Cards = ({ data }) => {
       });
   };
   return (
-    <Card className="h-full">
+    <Card className="h-full" data-aos="zoom-in-right"
+    data-aos-easing="ease-out-cubic"
+    data-aos-duration="2000">
       <CardMedia sx={{ height: 200 }} image={image} title={name} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

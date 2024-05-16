@@ -30,7 +30,7 @@ const UpdateCard = () => {
       email,
     };
     // console.log(updatedData);
-    fetch(`http://localhost:5000/blog/${_id}`, {
+    fetch(`https://b9a11-server-side-nayeem-miah.vercel.app/blog/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

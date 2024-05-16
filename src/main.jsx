@@ -5,7 +5,7 @@ import { RouterProvider } from "react-router-dom";
 import router from "./Routes/Route.jsx";
 import { Toaster } from "react-hot-toast";
 import AuthProvider from "./Provider/AuthProvider";
-
+// import 'animate.css';
 import {
   
   QueryClient,

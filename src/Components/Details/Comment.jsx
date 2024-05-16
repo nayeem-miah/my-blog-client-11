@@ -15,7 +15,7 @@ const Comment = ({ email }) => {
     const comment = form.comment.value;
     const userComment = { email, comment, photo, displayName };
     // console.log(userComment);
-    fetch("http://localhost:5000/comment", {
+    fetch("https://b9a11-server-side-nayeem-miah.vercel.app/comment", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(userComment),

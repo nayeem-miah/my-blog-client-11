@@ -1,44 +1,21 @@
-import {
-    Button,
-    Card,
-    CardActions,
-    CardContent,
-    CardMedia,
-    Typography,
-  } from "@mui/material";
-  
-  import { MdDeleteForever } from "react-icons/md";
-  import { Link } from "react-router-dom";
-  
-  const WishListCards2 = ({ item, handleDelete }) => {
-    // const [users, setUsers] = useState([]);
-    const { shortDescription, name, image, _id, category } = item;
-  
-    return (
-      <Card className="h-full">
-        <CardMedia sx={{ height: 200 }} image={image} title={name} />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {name}
-          </Typography>
-          <Typography gutterBottom variant="h6" component="div">
-            {category}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {shortDescription}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Link to={`/details/${_id}`}>
-            <Button size="small">details</Button>
-          </Link>
-          <Button onClick={() => handleDelete(_id)}>
-            <MdDeleteForever className="text-4xl text-red-500"></MdDeleteForever>
-          </Button>
-        </CardActions>
-      </Card>
-    );
-  };
-  
-  export default WishListCards2;
-  
+
+import { useLoaderData } from "react-router-dom";
+
+const WishListCardsDetails = () => {
+  const item = useLoaderData();
+// console.log(item);
+  return (
+    <div className="lg:mx-10 my-10">
+      <div>
+        <h2 className="text-green-500 text-center text-4xl my-7">details Name : {item.name}</h2>
+        <img className="w-full rounded shadow-2xl" src={item.image} alt="" />
+      </div>
+      <div>
+        <h3 className="text-2xl my-4">category :{item.category} </h3>
+        <p className="text-xl">shortDescription : {item.shortDescription}</p>
+      </div>
+    </div>
+  );
+};
+
+export default WishListCardsDetails;

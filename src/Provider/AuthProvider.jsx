@@ -58,16 +58,15 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
       setUser(currentUser);
       // token
-      if (currentUser) {
-       
-        axios.post('http://localhost:5000/jwt',loggedUSer, 
+      if (currentUser) {    
+        axios.post('https://b9a11-server-side-nayeem-miah.vercel.app/jwt',loggedUSer, 
         { withCredentials: true })
         .then(res => {
           // console.log("token response ", res.data);
         });
       }
       else {
-        axios.post('http://localhost:5000/logout', loggedUSer, {
+        axios.post('https://b9a11-server-side-nayeem-miah.vercel.app/logout', loggedUSer, {
           withCredentials : true, 
 
         })
@@ -81,6 +80,7 @@ const AuthProvider = ({ children }) => {
       unsubscribe();
     };
   }, []);
+  
 
   //  auth info
   const authInfo = {

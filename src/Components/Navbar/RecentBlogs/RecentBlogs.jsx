@@ -9,13 +9,18 @@ import {
   Typography,
 } from "@mui/material";
 import toast from "react-hot-toast";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const RecentBlogs = ({ blog }) => {
   const user = useAuth();
   const { category, description, image, _id, title } = blog;
 
   const photo = user?.photoURL;
-
+  useEffect(() => {
+    Aos.init();
+  }, []);
   const handleButton = () => {
     const newData = {
       description,
@@ -26,7 +31,7 @@ const RecentBlogs = ({ blog }) => {
       user,
       photo,
     };
-    fetch("http://localhost:5000/wishlistRecent", {
+    fetch("https://b9a11-server-side-nayeem-miah.vercel.app/wishlistRecent", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newData),
@@ -39,7 +44,11 @@ const RecentBlogs = ({ blog }) => {
       });
   };
   return (
-    <div>
+    <div
+      data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+    >
       <Card className="h-full">
         <CardMedia sx={{ height: 200 }} image={image} title={title} />
         <CardContent>

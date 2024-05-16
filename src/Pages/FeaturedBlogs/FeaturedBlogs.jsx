@@ -1,45 +1,18 @@
 import { useLoaderData } from "react-router-dom";
+import Aos from 'aos';
+import 'aos/dist/aos.css'
+import { useEffect } from 'react';
 
 const FeaturedBlogs = () => {
   const users = useLoaderData();
-
-  // ----------------------------------
-
-  // const [users, setUsers] = useState([]);
-  //  console.log(user?.displayName);
-  // const handleDelete = id => {
-  //   // are you sure
-  //   fetch(` http://localhost:5000/featuredBlogs/${id}`, {
-  //     method: "DELETE",
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       if (data.deletedCount > 0) {
-  //         Swal.fire({
-  //           title: "Are you sure?",
-  //           text: "this form is deleted",
-  //           icon: "warning",
-  //           showCancelButton: true,
-  //           confirmButtonColor: "#3085d6",
-  //           cancelButtonColor: "#d33",
-  //           confirmButtonText: "Yes, delete it!",
-  //         }).then(result => {
-  //           if (result.isConfirmed) {
-  //             Swal.fire({
-  //               title: "Deleted!",
-  //               text: "Your file has been deleted.",
-  //               icon: "success",
-  //             });
-  //           }
-  //         });
-  //         const remaining = users.filter(info => info._id !== id);
-  //         setUsers(remaining);
-  //       }
-  //     });
-  // };
+  useEffect(()=>{
+    Aos.init();
+  },[])
   return (
     <div className="min-h-[calc(100vh-256px)] lg:mx-10 mx-1 border my-5 lg:p-3">
-      <table className="w-full  mx-1">
+      <table className="w-full  mx-1" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000">
         <thead>
           <tr className="p-4 shadow-lg">
             <th>no</th>

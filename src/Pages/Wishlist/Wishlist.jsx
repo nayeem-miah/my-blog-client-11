@@ -8,10 +8,11 @@ const Wishlist = () => {
   const { user } = useAuth();
   const [users, setUsers] = useState([]);
 
-  // const wishlistUrl = `http://localhost:5000/wishlists/${user?.email}`
-  // const wishlistRecentUrl = `http://localhost:5000/wishlistRecent/${user?.email}`
   useEffect(() => {
-    fetch(`http://localhost:5000/wishlists/${user?.email}`, {credentials:"include"})
+    fetch(
+      `https://b9a11-server-side-nayeem-miah.vercel.app/wishlists/${user?.email}`,
+      { credentials: "include" },
+    )
       .then(res => res.json())
       .then(data => {
         // console.log(data);
@@ -21,7 +22,7 @@ const Wishlist = () => {
 
   const handleDelete = id => {
     //   // are you sure
-    fetch(`http://localhost:5000/wishlist/${id}`, {
+    fetch(`https://b9a11-server-side-nayeem-miah.vercel.app/wishlist/${id}`, {
       method: "DELETE",
     })
       .then(res => res.json())

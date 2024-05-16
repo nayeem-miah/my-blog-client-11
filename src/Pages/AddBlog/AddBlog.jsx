@@ -27,7 +27,7 @@ const AddBlog = () => {
 
     };
     // console.log(data);
-    fetch('http://localhost:5000/blogs', {
+    fetch('https://b9a11-server-side-nayeem-miah.vercel.app/blogs', {
     method: 'POST', 
     headers: {
         "content-type": "application/json"

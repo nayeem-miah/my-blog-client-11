@@ -12,8 +12,8 @@ import PrivetRouts from "./PrivetRoute/PrivetRoute";
 import Details from "../Components/Details/Details";
 import RecentDetails from "../Components/Navbar/RecentBlogs/recentDetails";
 import UpdateCard from "../Components/UpdateCard/UpdateCard";
+import WishListCardsDetails from "../Pages/Wishlist/WishListCardsDetails";
 
-// import WishListCardDetails from "../Pages/Wishlist/WishListCardsDetails";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/recent"),
+        loader: () => fetch("https://b9a11-server-side-nayeem-miah.vercel.app/recent"),
       },
       {
         path: "/addBlogs",
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: "/allBlogs",
         element: <AllBlogs></AllBlogs>,
-        // loader: () => fetch("http://localhost:5000/blogs"),
+        // loader: () => fetch("https://b9a11-server-side-nayeem-miah.vercel.app/blogs"),
       },
       {
         path: "/details/:id",
@@ -47,18 +47,18 @@ const router = createBrowserRouter([
           </PrivetRouts>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/blogs/${params.id}`),
+          fetch(`https://b9a11-server-side-nayeem-miah.vercel.app/blogs/${params.id}`),
       },
-      // {
-      //   path: "/wishlis/:id",
-      //   element: (
-      //     <PrivetRouts>
-      //       <WishListCardDetails></WishListCardDetails>
-      //     </PrivetRouts>
-      //   ),
-      //   loader: ({ params }) =>
-      //     fetch(`http://localhost:5000/wishlis/${params.id}`),
-      // },
+      {
+        path: "/wishlistDetils/:id",
+        element: (
+          <PrivetRouts>
+            <WishListCardsDetails></WishListCardsDetails>
+          </PrivetRouts>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://b9a11-server-side-nayeem-miah.vercel.app/wishlisDet/${params.id}`),
+      },
 
       {
         path: "/recentDetails/:id",
@@ -68,12 +68,12 @@ const router = createBrowserRouter([
           </PrivetRouts>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/recentDetails/${params.id}`),
+          fetch(`https://b9a11-server-side-nayeem-miah.vercel.app/recentDetails/${params.id}`),
       },
       {
         path: "/featuredBlogs",
         element: <FeaturedBlogs></FeaturedBlogs>,
-        loader: () => fetch("http://localhost:5000/featuredBlogs"),
+        loader: () => fetch("https://b9a11-server-side-nayeem-miah.vercel.app/featuredBlogs"),
       },
       {
         path: "/wishlist",
@@ -99,7 +99,7 @@ const router = createBrowserRouter([
           </PrivetRouts>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/blog/${params.id}`),
+          fetch(`https://b9a11-server-side-nayeem-miah.vercel.app/blog/${params.id}`),
       },
     ],
   },

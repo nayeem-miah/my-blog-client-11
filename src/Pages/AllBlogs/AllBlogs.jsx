@@ -10,7 +10,7 @@ const AllBlogs = () => {
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios(
-        `http://localhost:5000/blogs?&search=${search}`)
+        `https://b9a11-server-side-nayeem-miah.vercel.app/blogs?&search=${search}`)
         setDatas(data)
     };
     // console.log(data);
@@ -24,8 +24,8 @@ const AllBlogs = () => {
 //   console.log(search);
   return (
     <div className="min-h-[calc(100vh-256px)] lg:mx-10 mx-1 ">
-      <h2 className="text-center text-4xl my-6">All Blogs </h2>
-      <form onSubmit={handleSearch} className="mx-auto text-center">
+      <h2 className="text-center text-4xl my-6 mb-15 text-blue-600 font-bold">All Blogs </h2>
+      <form onSubmit={handleSearch} className="mx-auto text-center mb-12">
         <input
           type="search"
           name="search"
@@ -35,7 +35,7 @@ const AllBlogs = () => {
         />
         <input className="btn btn-success" type="submit" value="search" />
       </form>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 my-8">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 my-8">
         {datas.map(data => (
           <Cards key={data._id} data={data}></Cards>
         ))}
